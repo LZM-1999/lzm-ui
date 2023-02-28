@@ -1,6 +1,6 @@
 {
   "name": "lzm-ui",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "正式版本",
   "main": "/src/index.js",
   "scripts": {
