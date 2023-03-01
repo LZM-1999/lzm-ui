@@ -1,7 +1,7 @@
 <template>
-  <el-form :inline='true' class="demo-form-inline" :model="form" ref="form">
+  <el-form :inline='true' class="demo-form-inline" :model="form" :rules="rules" ref="form">
       <template v-for="item in formItemProp">
-          <el-form-item :key="item.prop" :label="item.label" v-if="item.prop !== 'handle'">
+          <el-form-item :key="item.prop" :label="item.label" v-if="item.prop !== 'handle'" :prop="item.prop">
               <slot :name="item.label" :slot-scope="{formItemProp, form, target:item}">
                   <el-input v-if="item.itemProp.type=='input'" v-model="form[item.prop]" :placeholder="item.itemProp.placeholder"></el-input>
                   <el-select v-if="item.itemProp.type=='select'" v-model="form[item.prop]" :placeholder="item.itemProp.placeholder">
@@ -38,7 +38,13 @@ export default {
             default() {
                 return []
             }
-        }
+        },
+        rules:{
+            type: Object,
+            default() {
+                return {}
+            }
+        },
     },
     
     data () {
@@ -46,11 +52,19 @@ export default {
             form:{},
         }
     },
+    created() {
+      this.setRules(this.formItemProp)
+      console.log(this.formItemProp,'formItemProp');
+    },
+    mounted() {
+    },
     methods:{
         handleEvent(eventType){
             if(eventType=='reset'){
                 this.handleReset()
             }
+        },
+        setRules(formItemProp){
         },
         handleReset(){
             this.form={}
