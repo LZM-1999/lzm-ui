@@ -23,6 +23,8 @@ let MyPlugin={
         // 4. 注册全局组件
         Vue.component('M-LineChart', MLineChart)
         Vue.component('M-Table', MTable)
+        Vue.component('M-Form', MTable)
+
 
     }
 }
