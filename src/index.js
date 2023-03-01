@@ -1,5 +1,7 @@
 import MLineChart from "lzm-ui/src/components/MLineChart.vue";
 import MTable from "lzm-ui/src/components/MTable.vue";
+import MForm from "lzm-ui/src/components/MForm.vue";
+
 
 let MyPlugin={
     install : function (Vue, options) {
@@ -23,7 +25,7 @@ let MyPlugin={
         // 4. 注册全局组件
         Vue.component('M-LineChart', MLineChart)
         Vue.component('M-Table', MTable)
-        Vue.component('M-Form', MTable)
+        Vue.component('M-Form', MForm)
 
 
     }
